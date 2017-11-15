@@ -75,7 +75,6 @@ default         0;
             libldap2-dev \
             libidn11-dev \
             libidn2-0-dev \
-            libpsn-dev \
             gnutls-dev \
             librtmp-dev \
             build-essential libtool autotools-dev automake pkg-config \
@@ -84,6 +83,7 @@ default         0;
             git \
             pwgen
     clear
+            #libpsn-dev \
     
     #Generating Random Passwords
     password=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
