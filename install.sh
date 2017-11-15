@@ -1,14 +1,6 @@
 #!/bin/bash
-################################################################################
-# Author:   
-# 
-# Web:      blocksuckernation.com
-#
-# Program:
-#   Install yiimp on Ubuntu 16.04 running Nginx, MariaDB, and php7.x
-# BTC Donation: 
-# 
-################################################################################
+# vim:ts=4:sw=4:ai:et:si:sts=4
+
 output() {
     printf "\E[0;33;40m"
     echo $1
@@ -21,26 +13,17 @@ displayErr() {
     echo
     exit 1;
 }
-clear
-output "Make sure you double check before hitting enter! Only one shot at these!"
-output ""
-    read -e -p "Enter time zone (e.g. America/New_York) : " TIME
-    read -e -p "Server name (no http:// or www. just example.com) : " server_name
-    read -e -p "Are you using a subdomain (pool.example.com?) [y/N] : " sub_domain
-    read -e -p "Enter support email (e.g. admin@example.com) : " EMAIL
-    read -e -p "Set stratum to AutoExchange? i.e. mine any coinf with BTC address? [y/N] : " BTC
-    read -e -p "Please enter a new location for /site/adminRights this is to customize the admin entrance url (e.g. myAdminpanel) : " admin_panel
-    read -e -p "Enter your Public IP for admin access (http://www.whatsmyip.org/) : " Public
-    read -e -p "Install Fail2ban? [Y/n] : " install_fail2ban
-    read -e -p "Install UFW and configure ports? [Y/n] : " UFW
-    read -e -p "Install LetsEncrypt SSL? IMPORTANT! You MUST have your domain name pointed to this server prior to running the script!! [Y/n]: " ssl_install
-    
-    clear 
-    output "If you found this helpful, please donate to BTC Donation: "
-    output ""
-    output "Updating system and installing required packages."
-    output ""
-    
+
+TIME="America/Los_Angeles"
+server_name=coinpool.mycryptocoins.net
+sub_domain=y
+EMAIL=gjhurlbu@gmail.com
+admin_panel=adminPanel
+install_fail2ban=y
+UFW=n
+ssl_install=y
+send_email=n
+
     # update package and upgrade Ubuntu
     sudo apt-get -y update 
     sudo apt-get -y upgrade
