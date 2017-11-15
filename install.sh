@@ -21,7 +21,7 @@ EMAIL=gjhurlbu@gmail.com
 admin_panel=adminPanel
 install_fail2ban=y
 UFW=n
-ssl_install=y
+ssl_install=n
 send_email=n
 
     # update package and upgrade Ubuntu
@@ -60,7 +60,7 @@ default         0;
     output "Installing php7.x and other needed files"
     output ""
     sudo aptitude -y install php7.0-fpm
-    sudo aptitude -y install php7.0-opcache php7.0-fpm php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap php7.0-cli php7.0-cgi php-pear php-auth php7.0-mcrypt mcrypt imagemagick libruby php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl memcached php-memcache php-imagick php-gettext php7.0-zip php7.0-mbstring
+    sudo aptitude -y install php7.0-opcache php7.0-fpm php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap php7.0-cli php7.0-cgi php-pear php-auth php7.0-mcrypt mcrypt imagemagick libruby php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl memcached php-memcache php-imagick php-gettext php7.0-zip php7.0-mbstring php7.0-mbstring
     sudo phpenmod mcrypt
     sudo phpenmod mbstring
     sudo aptitude -y install libgmp3-dev
@@ -69,6 +69,8 @@ default         0;
     sudo aptitude -y install libkrb5-dev
     sudo aptitude -y install libldap2-dev
     sudo aptitude -y install libidn11-dev
+    sudo aptitude -y install libidn2-0-dev
+    sudo aptitude -y install libpsn-dev
     sudo aptitude -y install gnutls-dev
     sudo aptitude -y install librtmp-dev
     sudo aptitude -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
