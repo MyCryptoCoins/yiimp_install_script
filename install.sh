@@ -50,12 +50,12 @@ default         0;
 }
 ' | sudo -E tee /etc/nginx/blockuseragents.rules >/dev/null 2>&1
         
-    output "Installing Mariadb Server."
+    output "Installing MySQL Server."
     output ""
     # create random password
     rootpasswd=$(openssl rand -base64 12)
     export DEBIAN_FRONTEND="noninteractive"
-    sudo aptitude -y install mariadb-server
+    sudo aptitude -y install mysql-server
     
     output "Installing php7.x and other needed files"
     output ""
