@@ -55,7 +55,7 @@ default         0;
     # create random password
     rootpasswd=$(openssl rand -base64 12)
     export DEBIAN_FRONTEND="noninteractive"
-    sudo apt-get -y install mysql-server
+    sudo -E aptitude-get -y install mysql-server
     
     output "Installing php7.x and other needed files"
     output ""
