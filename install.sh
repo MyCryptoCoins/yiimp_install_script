@@ -55,6 +55,8 @@ default         0;
     output ""
     # create random password
     rootpasswd=$(openssl rand -base64 12)
+    echo "mysql-server-5.7 mysql-server/root_password password ${rootpasswd}" | sudo debconf-set-selections
+    echo "mysql-server-5.7 mysql-server/root_password_again password ${rootpasswd}" | sudo debconf-set-selections
     export DEBIAN_FRONTEND="noninteractive"
     sudo -E aptitude -y install mysql-server
     
@@ -75,6 +77,7 @@ default         0;
             libldap2-dev \
             libidn11-dev \
             libidn2-0-dev \
+            libpsl-dev \
             gnutls-dev \
             librtmp-dev \
             build-essential libtool autotools-dev automake pkg-config \
@@ -83,7 +86,6 @@ default         0;
             git \
             pwgen
     clear
-            #libpsn-dev \
     
     #Generating Random Passwords
     password=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
