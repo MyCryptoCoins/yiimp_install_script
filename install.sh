@@ -14,6 +14,7 @@ displayErr() {
     exit 1;
 }
 
+export TERM=vt100
 TIME="America/Los_Angeles"
 server_name=coinpool.mycryptocoins.net
 sub_domain=y
@@ -619,18 +620,6 @@ sudo service php7.0-fpm reload
 fi
     clear
     output "Now for the database fun!"
-    # create database
-    Q1="CREATE DATABASE IF NOT EXISTS yiimpfrontend;"
-    Q2="GRANT ALL ON *.* TO 'panel'@'localhost' IDENTIFIED BY '$password';"
-    Q3="FLUSH PRIVILEGES;"
-    SQL="${Q1}${Q2}${Q3}"
-    sudo mysql -u root -p="" -e "$SQL"
-    # create stratum user
-    Q1="GRANT ALL ON *.* TO 'stratum'@'localhost' IDENTIFIED BY '$password2';"
-    Q2="FLUSH PRIVILEGES;"
-    SQL="${Q1}${Q2}"
-    sudo mysql -u root -p="" -e "$SQL"  
-    
     #Create my.cnf
     
  echo '
@@ -649,6 +638,21 @@ user=root
 password='"${rootpasswd}"'
 ' | sudo -E tee ~/.my.cnf >/dev/null 2>&1
       sudo chmod 0600 ~/.my.cnf
+
+    # create database
+    Q1="CREATE DATABASE IF NOT EXISTS yiimpfrontend;"
+    Q2="GRANT ALL ON *.* TO 'panel'@'localhost' IDENTIFIED BY '$password';"
+    Q3="FLUSH PRIVILEGES;"
+    SQL="${Q1}${Q2}${Q3}"
+    #sudo mysql -u root -p="" -e "$SQL"
+    sudo mysql -e "$SQL"
+    # create stratum user
+    Q1="GRANT ALL ON *.* TO 'stratum'@'localhost' IDENTIFIED BY '$password2';"
+    Q2="FLUSH PRIVILEGES;"
+    SQL="${Q1}${Q2}"
+    #sudo mysql -u root -p="" -e "$SQL"  
+    sudo mysql -e "$SQL"  
+    
 
 #Create keys file
   echo '  
@@ -675,9 +679,6 @@ define('"'"'EXCH_YOBIT_SECRET'"'"', '"'"''"'"');
  
 
     output "Database 'yiimpfrontend' and users 'panel' and 'stratum' created with password $password and $password2, will be saved for you"
-    output ""
-    output "BTC Donation: "
-    output ""
     
     output "Peforming the SQL import"
     output ""
