@@ -233,8 +233,8 @@ echo 'include /etc/nginx/blockuseragents.rules;
         if ($request_method !~ ^(GET|HEAD|POST)$) {
         return 444;
         }
-        listen 80;
-        listen [::]:80;
+        listen 8088;
+        listen [::]:8088;
         server_name '"${server_name}"';
         root "/var/www/'"${server_name}"'/html/web";
         index index.html index.htm index.php;
@@ -321,8 +321,8 @@ echo 'include /etc/nginx/blockuseragents.rules;
         if ($request_method !~ ^(GET|HEAD|POST)$) {
         return 444;
         }
-        listen 80;
-        listen [::]:80;
+        listen 8088;
+        listen [::]:8088;
         server_name '"${server_name}"';
     	# enforce https
         return 301 https://$server_name$request_uri;
@@ -430,8 +430,8 @@ echo 'include /etc/nginx/blockuseragents.rules;
         if ($request_method !~ ^(GET|HEAD|POST)$) {
         return 444;
         }
-        listen 80;
-        listen [::]:80;
+        listen 8088;
+        listen [::]:8088;
         server_name '"${server_name}"' www.'"${server_name}"';
         root "/var/www/'"${server_name}"'/html/web";
         index index.html index.htm index.php;
@@ -518,8 +518,8 @@ echo 'include /etc/nginx/blockuseragents.rules;
         if ($request_method !~ ^(GET|HEAD|POST)$) {
         return 444;
         }
-        listen 80;
-        listen [::]:80;
+        listen 8088;
+        listen [::]:8088;
         server_name '"${server_name}"';
     	# enforce https
         return 301 https://$server_name$request_uri;
