@@ -211,7 +211,6 @@ exec bash
 ' | sudo -E tee /var/stratum/config/run.sh >/dev/null 2>&1
 sudo chmod +x /var/stratum/config/run.sh
     output "Update default timezone."
-    output "Thanks for using this installation script. Donations welcome"
     # check if link file
     sudo [ -L /etc/localtime ] &&  sudo unlink /etc/localtime
     # update time zone
@@ -818,5 +817,3 @@ output ""
 output "Please make sure to change your wallet addresses in the /var/web/serverconfig.php file."
 output ""
 output "Please make sure to add your public and private keys."
-output ""
-output "If you found this script helpful please consider donating some BTC Donation: "
