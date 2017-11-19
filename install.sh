@@ -809,8 +809,10 @@ sudo chmod -R 775 /root/backup/
 sudo chmod -R 775 /var/log
 sudo chmod -R 775 /var/web/serverconfig.php
 sudo mv $HOME/yiimp/ $HOME/yiimp-install-only-do-not-run-commands-from-this-folder
-sudo service nginx restart
-sudo service php7.0-fpm reload
+sudo service nginx stop
+sudo service php7.0-fpm stop
+sudo service mysql stop
+sudo service cron stop
 clear
 output "Whew that was fun, just some reminders. Your mysql information is saved in ~/.my.cnf. this installer did not directly install anything required to build coins."
 output ""
