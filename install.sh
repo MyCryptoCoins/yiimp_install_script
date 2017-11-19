@@ -16,13 +16,13 @@ displayErr() {
 
 export TERM=vt100
 TIME="America/Los_Angeles"
-server_name=coinpool.mycryptocoins.net
+server_name=pool.mycryptocoins.net
 sub_domain=y
 EMAIL=gjhurlbu@gmail.com
 admin_panel=adminPanel
 install_fail2ban=y
 UFW=n
-ssl_install=n
+ssl_install=y
 send_email=n
 
     # update package and upgrade Ubuntu
@@ -809,10 +809,8 @@ sudo chmod -R 775 /root/backup/
 sudo chmod -R 775 /var/log
 sudo chmod -R 775 /var/web/serverconfig.php
 sudo mv $HOME/yiimp/ $HOME/yiimp-install-only-do-not-run-commands-from-this-folder
-sudo service nginx stop
-sudo service php7.0-fpm stop
-sudo service mysql stop
-sudo service cron stop
+sudo service nginx restart
+sudo service php7.0-fpm reload
 clear
 output "Whew that was fun, just some reminders. Your mysql information is saved in ~/.my.cnf. this installer did not directly install anything required to build coins."
 output ""
